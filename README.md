@@ -1,6 +1,6 @@
 # FLIP v2 — Perceptual Image Comparison Plugin for Unreal Engine
 
-An Unreal Engine 5.7 plugin that brings the [FLIP v2](https://github.com/NVlabs/flip) perceptual image difference metric into the editor and runtime. Compare textures and render targets the way humans perceive differences — using spatial filters calibrated to the human visual system, CIEDE2000 color difference, and robust MAD-based anomaly detection.
+An Unreal Engine 5.7 plugin that brings the [FLIP v2](https://github.com/WellNotWell/gpu-agnostic-testing-framework) perceptual image difference metric into the editor and runtime. Compare textures and render targets the way humans perceive differences — using spatial filters calibrated to the human visual system, CIEDE2000 color difference, and robust MAD-based anomaly detection.
 
 ## Features
 
