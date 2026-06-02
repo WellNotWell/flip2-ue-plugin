@@ -21,21 +21,21 @@ public:
 	virtual void Deinitialize() override;
 
 	/** Compare two UTexture2D assets. Stores the result internally. */
-	UFUNCTION(BlueprintCallable, Category = "FLIP v2")
+	UFUNCTION(BlueprintCallable, Category = "FlipV2")
 	FFlipResult CompareTextures(
 		UTexture2D* TestTexture,
 		UTexture2D* ReferenceTexture,
 		const FFlipOptions& Options);
 
 	/** Compare two render targets. Stores the result internally. */
-	UFUNCTION(BlueprintCallable, Category = "FLIP v2")
+	UFUNCTION(BlueprintCallable, Category = "FlipV2")
 	FFlipResult CompareRenderTargets(
 		UTextureRenderTarget2D* TestRT,
 		UTextureRenderTarget2D* ReferenceRT,
 		const FFlipOptions& Options);
 
 	/** Compare a live render target against a saved reference texture. */
-	UFUNCTION(BlueprintCallable, Category = "FLIP v2")
+	UFUNCTION(BlueprintCallable, Category = "FlipV2")
 	FFlipResult CompareRenderTargetVsTexture(
 		UTextureRenderTarget2D* TestRT,
 		UTexture2D* ReferenceTexture,
@@ -43,19 +43,19 @@ public:
 
 
 	/** Return the result of the most recent comparison. */
-	UFUNCTION(BlueprintPure, Category = "FLIP v2")
+	UFUNCTION(BlueprintPure, Category = "FlipV2")
 	const FFlipResult& GetLastResult() const { return LastResult; }
 
 	/** Has at least one comparison been run this session? */
-	UFUNCTION(BlueprintPure, Category = "FLIP v2")
+	UFUNCTION(BlueprintPure, Category = "FlipV2")
 	bool HasResult() const { return bHasResult; }
 
 	/** Clear the stored result and free the heatmap texture reference. */
-	UFUNCTION(BlueprintCallable, Category = "FLIP v2")
+	UFUNCTION(BlueprintCallable, Category = "FlipV2")
 	void ClearResult();
 
 	/** Default options used when callers don't supply their own. */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FLIP v2")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FlipV2")
 	FFlipOptions DefaultOptions;
 
 private:

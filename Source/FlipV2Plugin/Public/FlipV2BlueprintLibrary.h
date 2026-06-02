@@ -26,7 +26,7 @@ public:
 	 * @param Options          Comparison options (thresholds, decision mode, etc.)
 	 * @return Comparison result with similarity score, statistics, and optional heatmap
 	 */
-	UFUNCTION(BlueprintCallable, Category = "FLIP v2",
+	UFUNCTION(BlueprintCallable, Category = "FlipV2",
 		meta = (DisplayName = "Compare Textures (FLIP v2)"))
 	static FFlipResult CompareTextures(
 		UTexture2D* TestTexture,
@@ -42,7 +42,7 @@ public:
 	 * @param Options     Comparison options
 	 * @return Comparison result
 	 */
-	UFUNCTION(BlueprintCallable, Category = "FLIP v2",
+	UFUNCTION(BlueprintCallable, Category = "FlipV2",
 		meta = (DisplayName = "Compare Render Targets (FLIP v2)"))
 	static FFlipResult CompareRenderTargets(
 		UTextureRenderTarget2D* TestRT,
@@ -58,7 +58,7 @@ public:
 	 * @param Options          Comparison options
 	 * @return Comparison result
 	 */
-	UFUNCTION(BlueprintCallable, Category = "FLIP v2",
+	UFUNCTION(BlueprintCallable, Category = "FlipV2",
 		meta = (DisplayName = "Compare RT vs Texture (FLIP v2)"))
 	static FFlipResult CompareRenderTargetVsTexture(
 		UTextureRenderTarget2D* TestRT,
@@ -66,12 +66,12 @@ public:
 		const FFlipOptions& Options);
 
 	/** Get a human-readable summary string from a FLIP result */
-	UFUNCTION(BlueprintPure, Category = "FLIP v2",
+	UFUNCTION(BlueprintPure, Category = "FlipV2",
 		meta = (DisplayName = "Get FLIP Result Summary"))
 	static FString GetResultSummary(const FFlipResult& Result);
 
 	/** Quick check: are two textures perceptually matching with default settings? */
-	UFUNCTION(BlueprintPure, Category = "FLIP v2",
+	UFUNCTION(BlueprintPure, Category = "FlipV2",
 		meta = (DisplayName = "Are Textures Matching? (FLIP v2)"))
 	static bool AreTexturesMatching(
 		UTexture2D* TestTexture,
