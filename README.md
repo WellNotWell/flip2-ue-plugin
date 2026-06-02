@@ -1,6 +1,6 @@
 # FLIP v2 — Perceptual Image Comparison Plugin for Unreal Engine
 
-An Unreal Engine 5.7 plugin that brings the [FLIP v2](https://github.com/WellNotWell/gpu-agnostic-testing-framework) perceptual image difference metric into the editor and runtime. Compare textures and render targets the way humans perceive differences — using spatial filters calibrated to the human visual system, CIEDE2000 color difference, and robust MAD-based anomaly detection.
+An Unreal Engine 5.7 plugin that brings the [FLIP v2](https://github.com/WellNotWell/gpu-agnostic-testing-framework) perceptual image difference metric into the editor and runtime. Compare textures and render targets the way humans perceive differences.
 
 ## Features
 
@@ -117,7 +117,9 @@ The heatmap is not displayed automatically. To visualize it:
 
 ## License
 
-This plugin wraps the FLIP v2 metric by NVIDIA. See the original [FLIP repository](https://github.com/NVlabs/flip) for license details on the core algorithm.
+MIT License. See [LICENSE](LICENSE) for details.
+
+This plugin implements the enhanced FLIP v2 metric developed as part of a thesis project, building upon the original [FLIP](https://github.com/NVlabs/flip) by NVIDIA (BSD-3-Clause).
 
 ## Author
 
