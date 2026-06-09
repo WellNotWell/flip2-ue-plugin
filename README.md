@@ -14,16 +14,42 @@ An Unreal Engine 5.7 plugin that brings the [FLIP v2](https://github.com/WellNot
 
 ## Installation
 
-1. Copy the `FlipV2` folder into your project's `Plugins/` directory:
+1. Clone this repository into your project's `Plugins/` directory **with submodules**:
+   ```bash
+   cd YourProject/Plugins
+   git clone --recurse-submodules https://github.com/WellNotWell/flip2-ue-plugin.git FlipV2
    ```
-   YourProject/
-   └── Plugins/
-       └── FlipV2/
-           ├── FlipV2.uplugin
-           └── Source/
+   If you cloned without `--recurse-submodules`, initialize it afterwards:
+   ```bash
+   cd YourProject/Plugins/FlipV2
+   git submodule update --init --recursive
    ```
-2. Regenerate project files (right-click `.uproject` → Generate Visual Studio project files)
+2. Regenerate project files (right-click `.uproject` → Generate Visual Studio project files).
 3. Build the project. The plugin is enabled by default.
+
+The canonical FLIP v2 implementation (`flip2.cpp`, `FLIP_2.h`, `flip2_api.h`, `image.h`) lives in the [`gpu-agnostic-testing-framework`](https://github.com/WellNotWell/gpu-agnostic-testing-framework) repository and is pulled in as a git submodule under `ThirdParty/flip-framework/`. The plugin and the standalone CLI tool build from the same sources.
+
+## Architecture
+
+```
+Plugins/FlipV2/
+├── FlipV2.uplugin
+├── ThirdParty/
+│   └── flip-framework/                      ← submodule (canonical sources)
+│       ├── flip_tool_2/src/
+│       │   ├── FLIP_2.h
+│       │   ├── flip2.cpp
+│       │   └── flip2_api.h
+│       └── flip_image/image.h
+└── Source/FlipV2Plugin/
+    ├── FlipV2Plugin.Build.cs                ← adds include paths into the submodule
+    ├── Private/
+    │   ├── Flip2Bridge.cpp                  ← trampoline TU: #undef PI/MAX/MIN/min/max → #include "flip2.cpp"
+    │   └── ... (plugin sources)
+    └── Public/...
+```
+
+The canonical `FLIP_2.h` uses identifiers like `PI`, `MIN`, `MAX`, `min`, `max` that collide with macros from `Windows.h` / UE headers. Rather than forking `FLIP_2.h`, the plugin compiles the upstream `flip2.cpp` through a thin trampoline (`Flip2Bridge.cpp`) that neutralizes the macros before the include. The framework sources stay untouched.
 
 ## Quick Start (Blueprints)
 

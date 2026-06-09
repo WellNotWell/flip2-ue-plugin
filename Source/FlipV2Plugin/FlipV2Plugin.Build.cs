@@ -20,8 +20,9 @@ public class FlipV2Plugin : ModuleRules
 			"RHI"
 		});
 
-		string ThirdPartyPath = Path.Combine(ModuleDirectory, "ThirdParty");
-		PrivateIncludePaths.Add(ThirdPartyPath);
+		string FrameworkRoot = Path.Combine(ModuleDirectory, "..", "..", "ThirdParty", "flip-framework");
+		PrivateIncludePaths.Add(Path.Combine(FrameworkRoot, "flip_tool_2", "src"));
+		PrivateIncludePaths.Add(Path.Combine(FrameworkRoot, "flip_image"));
 
 		// Suppress warnings from third-party FLIP headers
 		bEnableUndefinedIdentifierWarnings = false;

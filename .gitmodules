@@ -1,0 +1,3 @@
+[submodule "ThirdParty/flip-framework"]
+	path = ThirdParty/flip-framework
+	url = https://github.com/WellNotWell/gpu-agnostic-testing-framework.git
